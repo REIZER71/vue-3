@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Уведомления</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="app">
+    <h1>Уведомления:</h1>
+    <notification-message>
+        Данное окно информирует вас о том, что данное окно создано для информирования
+    </notification-message>
+
+    <notification-message>
+        Нет новых данных
+    </notification-message>
+
+    <notification-message type="error" header="Ошибка!">
+        Критический сбой!
+    </notification-message>
+
+    <notification-message type="success" header="успех!">
+        Данное окно информирует вас о том, что данное окно создано для информирования об успехах
+    </notification-message>
+
+    <notification-message type="success" header="успех!">
+        Успешно сохранено!
+    </notification-message>
+
+    <notification-message type="error" header="Ошибка!">
+        Данное окно информирует вас о том, что данное окно создано для информирования об ошибках
+    </notification-message>
+</div>
+
+<script type="text/x-template" id="NotificationMsgTemplate">
+    <div v-if="show" class="notification" :class="type" :header="header">
+        <div class="header">
+        <Strong>{{header}}</Strong>
+        </div>
+        <slot></slot>
+        <button class="close-btn" @click="show = false">
+            х
+        </button>
+    </div>
+</script>
+
+<script src="https://unpkg.com/vue@3"></script>
+<script src="app.js"></script>
+</body>
+</html>
